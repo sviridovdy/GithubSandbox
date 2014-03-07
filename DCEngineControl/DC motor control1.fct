@@ -1,0 +1,8 @@
+main DSTACK_USAGE:0 DSTACK_LEVEL:0 FILE:"DC motor control.c" LINE:346
+Sensor_Calibration DSTACK_USAGE:4 DSTACK_LEVEL:4 FILE:"DC motor control.c" LINE:279
+Sensor_Read DSTACK_USAGE:14 DSTACK_LEVEL:18 FILE:"DC motor control.c" LINE:153
+malloc DSTACK_USAGE:2 DSTACK_LEVEL:20 FILE:"C:\cvavreval\lib\stdlib.lib" LINE:1242
+timer3_compc_isr DSTACK_USAGE:13 DSTACK_LEVEL:33 FILE:"DC motor control.c" LINE:327
+Key_Press DSTACK_USAGE:18 DSTACK_LEVEL:51 FILE:"DC motor control.c" LINE:249
+Sensor_Read DSTACK_USAGE:14 DSTACK_LEVEL:65 FILE:"DC motor control.c" LINE:153
+malloc DSTACK_USAGE:2 DSTACK_LEVEL:67 FILE:"C:\cvavreval\lib\stdlib.lib" LINE:1242

@@ -1,0 +1,59 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+TimeConst                                                                         0x0500      20
+Null_Menu                                                                         0x0514      18
+M1_1                                                                              0x0526      18
+M2                                                                                0x0538      18
+M1                                                                                0x054A      18
+M2_1                                                                              0x055C      18
+M3                                                                                0x056E      18
+M3_1                                                                              0x0580      18
+M1_2                                                                              0x0592      18
+M1_3                                                                              0x05A4      18
+M2_1_1                                                                            0x05B6      18
+M2_2                                                                              0x05C8      18
+M2_2_1                                                                            0x05DA      18
+M2_3                                                                              0x05EC      18
+M3_2                                                                              0x05FE      18
+M3_2_1                                                                            0x0610      18
+M2_1_2                                                                            0x0622      18
+M3_2_2                                                                            0x0634      18
+M3_2_3                                                                            0x0646      18
+_base_y                                                                           0x0658       4
+_seed                                                                             0x065C       4
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+CurrentMenu                                                                       R4,R5        2
+_lcd_x                                                                            R7           1
+_lcd_y                                                                            R6           1
+_lcd_maxx                                                                         R9           1
+
+FLASH Allocation [words]
+Function                                                          Address   Size
+--------------------------------------------------------------------------------
+DefaultMenuHandler                                                0x0015D      1
+Key_Press                                                         0x001EA     97
+Sensor_Calibration                                                0x0024B     41
+MoveMenu                                                          0x00274     37
+MoveIfNotNullMenuEntry                                            0x00299     13
+LCD_MENU_OUT                                                      0x002A6     12
+timer3_ovf_isr                                                    0x002B2      1
+timer3_compc_isr                                                  0x002B3     49
+main                                                              0x002E4    112
+_lcd_write_nibble_G100                                            0x00354     37
+_lcd_write_data                                                   0x00379     12
+lcd_gotoxy                                                        0x00385     13
+lcd_clear                                                         0x00392     10
+lcd_putchar                                                       0x0039C     21
+lcd_puts                                                          0x003B1     17
+lcd_init                                                          0x003C2     42
+ftrunc                                                            0x003EC     48
+floor                                                             0x0041C     16
+malloc                                                            0x0042C      6
