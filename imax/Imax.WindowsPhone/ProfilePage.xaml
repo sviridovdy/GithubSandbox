@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Imax.WindowsPhone.ProfilePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="#429FFF">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                   Name="CustomerNameBlock"
+                   Margin="10"
+                   FontSize="22"/>
+        <TextBlock Grid.Row="1"
+                   Name="CustomerIdBlock"
+                   Margin="10"
+                   FontSize="22"/>
+        <TextBlock Grid.Row="2"
+                   Name="CardNumberBlock"
+                   Margin="10"
+                   FontSize="22"/>
+        <TextBlock Grid.Row="3"
+                   Name="BonusesBlock"
+                   Margin="10"
+                   FontSize="22"/>
+    </Grid>
+</Page>
