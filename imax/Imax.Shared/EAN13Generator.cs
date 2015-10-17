@@ -79,19 +79,21 @@ namespace Imax.Shared
 
         public static string GenerateBarCode(string number)
         {
-            if (number.Length != 13)
+            if (number.Length != 12)
             {
                 return null;
             }
 
             int[] digits = new int[13];
-            for (int i = 0; i < 13; i++)
+            for (int i = 0; i < 12; i++)
             {
                 if (!int.TryParse(number.Substring(i, 1), out digits[i]))
                 {
                     return null;
                 }
             }
+
+            digits[12] = GetLastNumber(digits);
 
             var descriptor = Table[digits[0]];
             var resultBuilder = new StringBuilder();
@@ -111,6 +113,19 @@ namespace Imax.Shared
             resultBuilder.Append(Marker);
 
             return resultBuilder.ToString();
+        }
+
+        private static int GetLastNumber(int[] digits)
+        {
+            var weights = new[] {1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3};
+            int sum = 0;
+            for (int i = 0; i < 12; i++)
+            {
+                sum += digits[i]*weights[i];
+            }
+
+            var remainder = sum%10;
+            return 10 - remainder;
         }
     }
 }

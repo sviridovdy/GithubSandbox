@@ -1,4 +1,5 @@
 ﻿using Windows.Storage;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 using Imax.Shared;
 
@@ -20,9 +21,15 @@ namespace Imax.Universal
                 var profileResponse = await ImaxApi.Profile(profileRequest);
                 CustomerNameBlock.Text = profileResponse.CustomerName.FullName;
                 CustomerIdBlock.Text = profileResponse.UserId;
-                CardNumberBlock.Text = Ean13Generator.GenerateBarCode(profileResponse.CustomerCard + "9"); // tmp hack. should be calculated
+                CardNumberBlock.Text = Ean13Generator.GenerateBarCode(profileResponse.CustomerCard);
                 BonusesBlock.Text = profileResponse.Bonuses;
             }
+        }
+
+        private void SignOutButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            ApplicationData.Current.LocalSettings.Values.Clear();
+            Application.Current.Exit();
         }
     }
 }

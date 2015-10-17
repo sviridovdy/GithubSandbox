@@ -27,4 +27,11 @@
                    Margin="10"
                    FontSize="22"/>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Label="sign out"
+                          Icon="Remove"
+                          Click="SignOutButton_OnClick"/>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
