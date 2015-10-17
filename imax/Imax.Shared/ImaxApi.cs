@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -27,7 +28,7 @@ namespace Imax.Shared
                 using (var responseStream = response.GetResponseStream())
                 {
                     var bodyData = new byte[response.ContentLength];
-                    responseStream.Read(bodyData, 0, bodyData.Length);
+                    await ReadFromStream(responseStream, bodyData);
                     var bodyPayload = Encoding.UTF8.GetString(bodyData, 0, bodyData.Length);
                     var xdoc = XDocument.Parse(bodyPayload);
                     var responseElement = xdoc.Element("response");
@@ -57,7 +58,6 @@ namespace Imax.Shared
                 var request = WebRequest.CreateHttp(uri);
                 request.Method = "POST";
                 request.ContentType = "application/x-www-form-urlencoded";
-                request.Headers["cityId"] = registerRequest.CityId;
                 request.Headers["Accept-Language"] = "uk-ua";
                 request.Headers["Image-Scale"] = "2.0";
                 request.Headers["Cookie"] = "__cfduid=de7fd4ad6b6dffdd54501233";
@@ -94,14 +94,13 @@ namespace Imax.Shared
                 var uri = new Uri(string.Concat(ApiUrl, ProfileCommand));
                 var request = WebRequest.CreateHttp(uri);
                 request.Method = "GET";
-                request.Headers["cityId"] = profileRequest.CityId;
                 request.Headers["Auth-Token"] = profileRequest.AuthToken;
                 request.Headers["Image-Scale"] = "2.0";
                 using (var response = await request.GetResponseAsync())
                 using (var responseStream = response.GetResponseStream())
                 {
                     var bodyData = new byte[response.ContentLength];
-                    responseStream.Read(bodyData, 0, bodyData.Length);
+                    await ReadFromStream(responseStream, bodyData);
                     var bodyPayload = Encoding.UTF8.GetString(bodyData, 0, bodyData.Length);
                     var xdoc = XDocument.Parse(bodyPayload);
                     var responseElement = xdoc.Element("response");
@@ -120,6 +119,14 @@ namespace Imax.Shared
             catch (Exception)
             {
                 return new ProfileResponse(false);
+            }
+        }
+
+        private static async Task ReadFromStream(Stream stream, byte[] data)
+        {
+            var totalReaded = 0;
+            while ((totalReaded += await stream.ReadAsync(data, totalReaded, data.Length - totalReaded)) < data.Length)
+            {
             }
         }
     }

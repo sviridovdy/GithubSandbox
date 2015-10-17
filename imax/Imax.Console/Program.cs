@@ -13,7 +13,7 @@ namespace Imax.Console
             if (string.IsNullOrEmpty(authToken))
             {
                 var credentialsProvider = new ConsoleCredentialsProvider();
-                var registerRequest = new RegisterRequest(credentialsProvider.Login, credentialsProvider.Password, city.Id);
+                var registerRequest = new RegisterRequest(credentialsProvider.Login, credentialsProvider.Password);
                 var response = ImaxApi.Register(registerRequest).Result;
                 if (response.Succeeded)
                 {

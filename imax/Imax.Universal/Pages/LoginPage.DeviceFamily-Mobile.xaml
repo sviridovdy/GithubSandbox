@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="Imax.Universal.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Background="#429FFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="1"
+                 Name="LoginBox"
+                 PlaceholderText="Login"
+                 Margin="10"
+                 InputScope="EmailSmtpAddress"
+                 TextChanged="LoginBox_OnTextChanged"
+                 KeyUp="LoginBox_OnKeyUp"/>
+        <PasswordBox Grid.Row="2"
+                     Name="PasswordBox"
+                     PlaceholderText="Password"
+                     Margin="10"
+                     PasswordChanged="PasswordBox_OnPasswordChanged"
+                     KeyUp="PasswordBox_OnKeyUp"/>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="LoginButton"
+                          Label="login"
+                          Icon="Accept"
+                          IsEnabled="False"
+                          Click="LoginButton_OnClick"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
