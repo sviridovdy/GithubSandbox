@@ -1,0 +1,105 @@
+﻿<Page
+    x:Class="Imax.Universal.Pages.RegisterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Loaded="RegisterPage_OnLoaded"
+    IsTabStop="True">
+    <Grid Background="#429FFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="1"
+                    Name="NameBox"
+                    PlaceholderText="Name"
+                    Margin="10"
+                    IsTextPredictionEnabled="False"
+                    TextChanged="InputBox_OnTextChanged"
+                    KeyUp="InputBox_OnKeyUp"/>
+        <TextBox Grid.Row="2"
+                    Name="SurnameBox"
+                    PlaceholderText="Surname"
+                    Margin="10"
+                    IsTextPredictionEnabled="False"
+                    TextChanged="InputBox_OnTextChanged"
+                    KeyUp="InputBox_OnKeyUp"/>
+        <Grid Grid.Row="3" Name="GenderGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <RadioButton Grid.Column="0"
+                            Name="MaleGenderBox"
+                            Margin="10"
+                            Content="Male"
+                            Checked="GenderButton_OnChecked"/>
+            <RadioButton Grid.Column="1"
+                            Name="FemaleGenderBox"
+                            Margin="10"
+                            Content="Female"
+                            Checked="GenderButton_OnChecked"/>
+        </Grid>
+        <DatePicker Grid.Row="4"
+                    Name="BirthdatePicker"
+                    Header="Date of birth"
+                    Orientation="Horizontal"
+                    Margin="10"/>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Column="0"
+                        Name="CountryCodeBox"
+                        Width="80"
+                        SelectedIndex="0"
+                        Margin="10">
+                <x:String>+38</x:String>
+                <x:String>+375</x:String>
+            </ComboBox>
+            <TextBox Grid.Column="1"
+                    Name="PhoneNumberBox"
+                    PlaceholderText="xxx-xxx-xx-xx"
+                    Margin="10"
+                    InputScope="Number"
+                    TextChanged="InputBox_OnTextChanged"
+                    KeyUp="InputBox_OnKeyUp"/>
+        </Grid>
+        <TextBox Grid.Row="6"
+                    Name="EmailBox"
+                    PlaceholderText="Email"
+                    Margin="10"
+                    InputScope="EmailSmtpAddress"
+                    TextChanged="InputBox_OnTextChanged"
+                    KeyUp="InputBox_OnKeyUp"/>
+        <PasswordBox Grid.Row="7"
+                        Name="PasswordBox"
+                        PlaceholderText="Password"
+                        Margin="10"
+                        PasswordChanged="PasswordBox_OnPasswordChanged"
+                        KeyUp="InputBox_OnKeyUp"/>
+        <PasswordBox Grid.Row="8"
+                        Name="PasswordRepeatBox"
+                        PlaceholderText="Just to be sure"
+                        Margin="10"
+                        PasswordChanged="PasswordBox_OnPasswordChanged"
+                        KeyUp="InputBox_OnKeyUp"/>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar x:Name="CommandBar">
+            <AppBarButton x:Name="RegisterButton"
+                          Label="register"
+                          IsEnabled="False"
+                          Icon="Forward"
+                          Click="RegisterButton_OnClick"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

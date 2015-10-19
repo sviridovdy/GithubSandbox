@@ -58,7 +58,7 @@ namespace Imax.Universal
                 }
                 else
                 {
-                    rootFrame.Navigate(typeof (LoginPage));
+                    rootFrame.Navigate(typeof (RegisterPage));
                 }
             }
         }

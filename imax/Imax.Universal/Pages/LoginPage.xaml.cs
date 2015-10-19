@@ -35,8 +35,8 @@ namespace Imax.Universal.Pages
         {
             LoginButton.IsEnabled = false;
 
-            var registerRequest = new RegisterRequest(LoginBox.Text, PasswordBox.Password);
-            var response = await ImaxApi.Register(registerRequest);
+            var registerRequest = new LoginRequest(LoginBox.Text, PasswordBox.Password);
+            var response = await ImaxApi.Login(registerRequest);
             if (response.Succeeded)
             {
                 ApplicationData.Current.LocalSettings.Values.Add("AuthToken", response.Token);

@@ -2,7 +2,7 @@
 {
     public class BaseResponse
     {
-        protected BaseResponse(bool succeeded)
+        public BaseResponse(bool succeeded)
         {
             Succeeded = succeeded;
         }
@@ -22,7 +22,17 @@
 
     public class RegisterResponse : BaseResponse
     {
-        public RegisterResponse(bool succeeded, string token = null) : base(succeeded)
+        public RegisterResponse(bool succeeded, string message = null) : base(succeeded)
+        {
+            Message = message;
+        }
+
+        public string Message { get; }
+    }
+
+    public class LoginResponse : BaseResponse
+    {
+        public LoginResponse(bool succeeded, string token = null) : base(succeeded)
         {
             Token = token;
         }

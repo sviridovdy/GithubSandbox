@@ -40,6 +40,8 @@
     <Compile Include="City.cs" />
     <Compile Include="CustomerName.cs" />
     <Compile Include="EAN13Generator.cs" />
+    <Compile Include="Gender.cs" />
+    <Compile Include="PhoneNumber.cs" />
     <Compile Include="Requests.cs" />
     <Compile Include="Responses.cs" />
     <Compile Include="ImaxApi.cs" />

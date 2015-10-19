@@ -2,12 +2,17 @@
 {
     public class CustomerName
     {
+        public CustomerName(string firstName, string lastName) : this(firstName, null, lastName)
+        {
+            FullName = $"{firstName} {lastName}";
+        }
+
         public CustomerName(string firstName, string middleName, string lastName)
         {
             FirstName = firstName;
             MiddleName = middleName;
             LastName = lastName;
-            FullName = LastName + " " + FirstName + (string.IsNullOrEmpty(MiddleName) ? string.Empty : " " + MiddleName);
+            FullName = $"{lastName} {firstName} {middleName}";
         }
 
         public string FirstName { get; }

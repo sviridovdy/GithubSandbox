@@ -5,16 +5,17 @@ namespace Imax.Console
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
             var city = SelectCity();
+
             var storage = new NativeStorageProvider();
             var authToken = storage.AuthToken;
             if (string.IsNullOrEmpty(authToken))
             {
                 var credentialsProvider = new ConsoleCredentialsProvider();
-                var registerRequest = new RegisterRequest(credentialsProvider.Login, credentialsProvider.Password);
-                var response = ImaxApi.Register(registerRequest).Result;
+                var loginRequest = new LoginRequest(credentialsProvider.Login, credentialsProvider.Password);
+                var response = ImaxApi.Login(loginRequest).Result;
                 if (response.Succeeded)
                 {
                     authToken = storage.AuthToken = response.Token;
@@ -25,8 +26,11 @@ namespace Imax.Console
                 }
             }
 
-            var profileRequest = new ProfileRequest(city.Id, authToken);
+            var profileRequest = new ProfileRequest(authToken);
             var profileResponse = ImaxApi.Profile(profileRequest).Result;
+
+            var registerRequest = new RegisterRequest(new CustomerName("Vasya", null, "Pupkin"), Gender.Male, new DateTime(2012, 12, 21), PhoneNumber.Parse("+380123456789"), "example@nowhere.com", "qwerty");
+            var registerResponse = ImaxApi.Register(registerRequest).Result;
         }
 
         private static City SelectCity()
